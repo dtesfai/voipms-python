@@ -1,6 +1,8 @@
 import os
 import platform
+import json
 import requests
+
 from voipms.base.exceptions import VoipException
 
 class Client(object):
@@ -30,8 +32,14 @@ class Client(object):
         params["method"] = method
         params["content_type"] = "json"
 
-        response = requests.get(self.api_base, params=params).json()
-        return response
+        response = requests.get(self.api_base, params=params)
+        data = json.loads(response.text)
+        
+        if data['status'] and data['status'] != 'success':
+            err = data['status']
+            raise VoipException("API Call failed with exception: {}".format(err))
+
+        return data
 
     @property
     def accounts(self):
@@ -44,30 +52,34 @@ class Client(object):
     def call_detail_records(self):
         if self._call_detail_records is None:
             from voipms.api.call_detail_records import CallDetailRecords
-            self._call_detail_records = CallDetailRecords()
+            self._call_detail_records = CallDetailRecords(self)
         return self._call_detail_records
 
     @property
     def dids(self):
         if self._dids is None:
             from voipms.api.dids import DIDs
-            self._dids = DIDs()
+            self._dids = DIDs(self)
         return self._dids
 
     @property
     def general(self):
         if self._general is None:
             from voipms.api.general import General
-            self._general = General()
+            self._general = General(self)
         return self._general
 
     @property
     def voicemail(self):
         if self._voicemail is None:
             from voipms.api.voicemail import Voicemail
-            self._voicemail = Voicemail()
+            self._voicemail = Voicemail(self)
         return self._voicemail
 
     @property
     def balance(self):
-        return self.accounts.balance
+        return self.general.balance
+    
+    @property
+    def ip(self):
+        return self.general.ip
