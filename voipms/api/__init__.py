@@ -83,3 +83,11 @@ class Client(object):
     @property
     def ip(self):
         return self.general.ip
+
+    @property
+    def transaction_history(self):
+        return self.general.transaction_history
+
+    @property
+    def countries(self):
+        return self.general.countries

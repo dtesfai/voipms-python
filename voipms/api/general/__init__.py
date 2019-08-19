@@ -1,10 +1,14 @@
 from voipms.api.general.balance import Balance
 from voipms.api.general.ip import IP
+from voipms.api.general.transaction_history import TransactionHistory
+from voipms.api.general.countries import Countries
 
 class General():
     def __init__(self, base):
         self._balance = None
         self._ip = None
+        self._transaction_history = None
+        self._countries = None
 
         self.base = base
 
@@ -19,3 +23,15 @@ class General():
         if self._ip is None:
             self._ip = IP(self.base)
         return self._ip
+
+    @property
+    def transaction_history(self):
+        if self._transaction_history is None:
+            self._transaction_history = TransactionHistory(self.base)
+        return self._transaction_history
+
+    @property
+    def countries(self):
+        if self._countries is None:
+            self._countries = Countries(self.base)
+        return self._countries
