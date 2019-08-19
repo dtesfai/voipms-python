@@ -95,3 +95,11 @@ class Client(object):
     @property
     def languages(self):
         return self.general.languages
+
+    @property
+    def subaccount(self):
+        return self.accounts.subaccount
+
+    @property
+    def registration_status(self):
+        return self.accounts.registration_status

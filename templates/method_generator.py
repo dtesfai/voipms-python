@@ -7,8 +7,8 @@ print("Which category does this endpoint fall under?")
 subdir_index = int(input("1: accounts, 2: call_detail_records, 3: dids, 4: general, 5: voicemail: "))
 subdir = ("accounts", "call_detail_records", "dids", "general", "voicemail")[subdir_index - 1]
 
-endpoint = "getLanguages"
-method = "languages"
+endpoint = "getRegistrationStatus"
+method = "registration_status"
 
 filename = "../voipms/api/{}/{}.py".format(subdir, method)
 
@@ -60,7 +60,7 @@ with open(filename, 'w') as file:
 filename = "../voipms/api/__init__.py"
 
 template = env.get_template('dir_init.j2')
-output = template.render(method_name=method)
+output = template.render(subdir=subdir, method_name=method)
 
 with open(filename, 'a') as file:
     file.writelines("\n\n" + output)
