@@ -91,3 +91,7 @@ class Client(object):
     @property
     def countries(self):
         return self.general.countries
+
+    @property
+    def languages(self):
+        return self.general.languages

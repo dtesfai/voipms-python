@@ -7,8 +7,8 @@ print("Which category does this endpoint fall under?")
 subdir_index = int(input("1: accounts, 2: call_detail_records, 3: dids, 4: general, 5: voicemail: "))
 subdir = ("accounts", "call_detail_records", "dids", "general", "voicemail")[subdir_index - 1]
 
-endpoint = "getCountries"
-method = "countries"
+endpoint = "getLanguages"
+method = "languages"
 
 filename = "../voipms/api/{}/{}.py".format(subdir, method)
 
@@ -44,8 +44,6 @@ for k, v in enumerate(contents):
         contents.insert(k, output_import + "\n")
         pos = k
         break
-
-print(pos)
 
 for k, v in enumerate(contents[pos+2:], pos+2):
     if v == "\n":

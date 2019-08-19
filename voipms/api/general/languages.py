@@ -1,6 +1,6 @@
-class TransactionHistory():
+class Languages():
     def __init__(self, base):
-        self.method = "getTransactionHistory"
+        self.method = "getLanguages"
         self.base = base
     
     def fetch(self, params={}):

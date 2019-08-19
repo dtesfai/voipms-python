@@ -4,4 +4,4 @@ class IP():
         self.base = base
     
     def fetch(self, params={}):
-        return self.base.request(self.method)
+        return self.base.request(self.method, params=params)
