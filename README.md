@@ -25,14 +25,13 @@ python setup.py install
 The library needs to be configured with your account's email and API password, the latter of which can be created [here](https://voip.ms/m/api.php). Set the variables `voipms.email` and `voipms.apikey` to their respective values:
 
 ```python
-import voipms
+from voipms.api import Client
 
-voipms.email = "test@email.com"
-voipms.api_key = "01N0sWTdiutWTHNF"
+email = "test@email.com"
+api_password = "01N0sWTdiutWTHNF"
+
+client = Client(email, api_password)
 
 # get current account balance
-voipms.general.get_balance()
-
-# remove did from account
-voipms.dids.cancel_dids(did="5551234567")
+balance = client.balance.fetch()
 ```
