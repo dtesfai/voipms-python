@@ -22,7 +22,7 @@ python setup.py install
 
 ## Usage
 
-The library needs to be configured with your account's email and API password, the latter of which can be created [here](https://voip.ms/m/api.php). Set the variables `voipms.email` and `voipms.apikey` to their respective values:
+The library needs to be configured with your account's email and API password, the latter of which can be created [here](https://voip.ms/m/api.php). Once that's been done, create a Client object as shown below:
 
 ```python
 from voipms.api import Client
