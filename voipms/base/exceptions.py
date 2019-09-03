@@ -408,7 +408,8 @@ class VoipException(Exception):
             'used_speed_dial': 'You have an entry with this Speed Dial',
             'used_username': 'You already have a subaccount using this Username.',
             'weak_password': 'This Password is too weak or too common'}
-        return "API Call failed as: {}".format(err_code_map[self.err_code])
+        err_desc = err_code_map[self.err_code] or self.err_code
+        return "API Call failed as: {}".format(err_desc)
 
     
 
