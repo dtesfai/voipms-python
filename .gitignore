@@ -23,6 +23,8 @@ lib
 lib64
 share
 pyvenv.cfg
+templates
+*.egg-info
 
 # Unit test / coverage reports
 .coverage
