@@ -14,3 +14,7 @@ class Subaccount():
     def fetch(self, params={}):
         self.method = "getSubAccounts"
         return self.base.request(self.method, params=params)
+
+    def set(self, params={}):
+        self.method = "setSubAccount"
+        return self.base.request(self.method, params=params)

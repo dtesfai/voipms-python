@@ -103,3 +103,31 @@ class Client(object):
     @property
     def registration_status(self):
         return self.accounts.registration_status
+
+    @property
+    def billing(self):
+        return self.call_detail_records.billing
+
+    @property
+    def records(self):
+        return self.call_detail_records.records
+
+    @property
+    def rates(self):
+        return self.call_detail_records.rates
+
+    @property
+    def termination_rates(self):
+        return self.call_detail_records.termination_rates
+
+    @property
+    def search(self):
+        return self.dids.search
+
+    @property
+    def sms(self):
+        return self.dids.sms
+
+    @property
+    def messages(self):
+        return self.voicemail.messages
