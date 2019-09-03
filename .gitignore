@@ -18,6 +18,10 @@ scratch
 env
 venv*
 wheels
+lib
+lib64
+share
+pyvenv.cfg
 
 # Unit test / coverage reports
 .coverage

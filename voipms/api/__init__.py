@@ -36,8 +36,8 @@ class Client(object):
         data = json.loads(response.text)
         
         if data['status'] and data['status'] != 'success':
-            err = data['status']
-            raise VoipException("API Call failed with exception: {}".format(err))
+            err_code = data['status']
+            raise VoipException(err_code)
 
         return data
 

@@ -7,8 +7,8 @@ print("Which category does this endpoint fall under?")
 subdir_index = int(input("1: accounts, 2: call_detail_records, 3: dids, 4: general, 5: voicemail: "))
 subdir = ("accounts", "call_detail_records", "dids", "general", "voicemail")[subdir_index - 1]
 
-endpoint = "getRegistrationStatus"
-method = "registration_status"
+endpoint = input("endpoint name? ")
+method = input("method name? ")
 
 filename = "../voipms/api/{}/{}.py".format(subdir, method)
 
