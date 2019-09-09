@@ -24,7 +24,6 @@ lib
 lib64
 share
 pyvenv.cfg
-templates
 *.egg-info
 man
 include
@@ -44,3 +43,6 @@ htmlcov*
 
 # Visual Studio Code
 .vscode/
+
+# Development
+templates/
