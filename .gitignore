@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.pyc
+*.swp
 
 # Installer logs
 pip-log.txt
@@ -25,12 +26,13 @@ share
 pyvenv.cfg
 templates
 *.egg-info
+man
+include
 
 # Unit test / coverage reports
 .coverage
 .pytest_cache/
 .tox
-test.py
 
 .DS_Store
 
