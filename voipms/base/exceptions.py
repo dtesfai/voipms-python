@@ -5,7 +5,6 @@ class VoipException(Exception):
     def __init__(self, err_code=""):
         self.err_code = err_code
 
-
     def __str__(self):
         err_code_map = {
             'account_with_dids': 'The Account has DIDs assigned to it.',
@@ -57,8 +56,10 @@ class VoipException(Exception):
             'invalid_conference': 'This is not a valid Conference ID',
             'invalid_countryid': 'This is not a valid Country ID',
             'invalid_city': 'City is missing or the format is invalid.',
-            'invalid_country': ('Country is missing or the format is invalid, must be in format ISO 3166-1 alpha-2, '
-                'example: US, CA, etc. (You can use the values returned by the method getCountries)'),
+            'invalid_country': (
+                'Country is missing or the format is invalid, must be in format ISO 3166-1 alpha-2, '
+                'example: US, CA, etc. (You can use the values returned by the method getCountries)'
+            ),
             'invalid_credentials': 'Username or Password is incorrect',
             'invalid_date': 'This is not a valid dateFormat is: yyyy-mm-dd',
             'invalid_datetime': 'This is not a valid datetimeFormat is: yyyy-mm-dd hh:mm:ss',
@@ -136,15 +137,24 @@ class VoipException(Exception):
             'invalid_number_us': 'You have entered a USA number (not valid in this portability process).',
             'invalid_number_fax': 'The Fax number can not be ported into our network',
             'invalid_number_exist': 'The number is already in our network',
-            'invalid_numbermembers': 'The element format of multiple data is not correct or it size does not match with other elements',
+            'invalid_numbermembers': (
+                'The element format of multiple data is not correct '
+                'or it size does not match with other elements'
+            ),
             'invalid_order': 'This is not a valid "order" value',
             'invalid_package': 'This is not a valid Package',
-            'invalid_password': 'This is not a valid passwordVoicemail: Must be 4 DigitsSubAccounts: More than 6 chars, Must Contain Alphanumeric and !#$%&/()=?*[]_:.,{}+-',
+            'invalid_password': (
+                'This is not a valid password, Voicemail: Must be 4 Digits, '
+                'SubAccounts: More than 6 chars, Must Contain Alphanumeric and !#$%&/()=?*[]_:.,{}+-'
+            ),
             'invalid_password_auth': 'Do not provide a Password for IP Authentication',
             'invalid_password_lessthan_8characters_long': 'This is not a valid password (Less than 8 characters long)',
             'invalid_password_missing_uppercase': 'This is not a valid password (Missing upper case character)',
             'invalid_password_missing_lowercase': 'This is not a valid password (Missing lower case character)',
-            'invalid_password_ilegal_characters': 'This is not a valid password (Allowed characters: Alphanumeric and ! # $ % & / ( ) = ? * [ ] _ : . , { } + -)',
+            'invalid_password_ilegal_characters': (
+                'This is not a valid password (Allowed characters: '
+                'Alphanumeric and ! # $ % & / ( ) = ? * [ ] _ : . , { } + -)'
+            ),
             'invalid_password_missing_number': 'This is not a valid password (Missing a number)',
             'invalid_pause': 'This is not a valid Pause',
             'invalid_payment': 'This is not a valid Payment',
@@ -158,7 +168,8 @@ class VoipException(Exception):
             'invalid_province': 'This is not a valid Province',
             'invalid_provider_name': 'You must provide the service provider name',
             'invalid_provider_account': 'You must provide your account # with the current provider',
-            'invalid_portingid': "The given ID is invalid or doesn't exist.", 'invalid_porttype': 'Must provide a valid port type.',
+            'invalid_portingid': "The given ID is invalid or doesn't exist.",
+            'invalid_porttype': 'Must provide a valid port type.',
             'invalid_port_status': 'The status code is invalid. (You can use the values returned by the method getListStatus)',
             'invalid_quantity': 'This is not a valid quantity',
             'invalid_query': 'This is not a valid Query',
@@ -187,7 +198,10 @@ class VoipException(Exception):
             'invalid_recording_sound_participants_unmuted': '"participants unmuted" is not a valid recording',
             'invalid_report_hold_time_agent': 'This is not a valid Report hold time agent',
             'invalid_resellerclient': 'This is not a valid Reseller Client',
-            'invalid_resellernextbilling': 'This is not a valid Reseller Next Billing date, date should not be set in the past.',
+            'invalid_resellernextbilling': (
+                'This is not a valid Reseller Next Billing date, '
+                'date should not be set in the past.'
+            ),
             'invalid_resellerpackage': 'This is not a valid Reseller Package',
             'invalid_response_timeout': 'This is not a valid ResponseTimeOut',
             'invalid_retry_timer': 'This is not a valid Retry timer',
@@ -221,7 +235,10 @@ class VoipException(Exception):
             'invalid_timecondition': 'This is not a valid Time Condition',
             'invalid_timeout': 'This is not a valid timeout',
             'invalid_timerange': 'This is not a valid Timer Range',
-            'invalid_timezone': 'This is not a valid TimezoneCDR and resellerCDR: Must be numericVoicemail: Values from getTimezone',
+            'invalid_timezone': (
+                'This is not a valid TimezoneCDR and resellerCDR: '
+                'Must be numericVoicemail: Values from getTimezone'
+            ),
             'invalid_type': 'This is not a valid Type',
             'invalid_to_number': 'This is not a valid destination number',
             'invalid_username': 'This is not a valid Username',
@@ -290,7 +307,10 @@ class VoipException(Exception):
             'missing_folder': 'folder was not provided',
             'missing_forwarding': 'Forwarding was not provided',
             'missing_id': 'ID was not provided',
-            'missing_if_announce_position_enabled_report_estimated_hold_time': "'If announce position enabled report estimated hold time' type was not provided",
+            'missing_if_announce_position_enabled_report_estimated_hold_time': (
+                "'If announce position enabled report "
+                "estimated hold time' type was not provided"
+            ),
             'missing_internationalroute': 'International Route was not provided',
             'missing_ip': 'You need to provide an IP if you select IP Authentication Method',
             'missing_ip_h323': 'You must enter an IP Address for H.323',
@@ -369,7 +389,10 @@ class VoipException(Exception):
             'no_base64file': 'File not encoded in base64',
             'no_callback': 'There are not Callbacks',
             'no_callhunting': 'There are no Call Huntings',
-            'no_callstatus': 'No Call Status was provided. One of the following parameters needs to be set to "1": answered, noanswer, busy, failed',
+            'no_callstatus': (
+                'No Call Status was provided. One of the following parameters needs to be set to "1": '
+                'answered, noanswer, busy, failed'
+            ),
             'no_cdr': 'There are no CDR entries for the filter',
             'no_change_billingtype': 'Imposible change DID billing plan',
             'no_client': 'There are no Clients',
