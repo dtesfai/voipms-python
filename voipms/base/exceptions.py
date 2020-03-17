@@ -1,30 +1,33 @@
 from __future__ import absolute_import, division, print_function
 
-import sys
 
 class VoipException(Exception):
     def __init__(self, err_code=""):
         self.err_code = err_code
+
 
     def __str__(self):
         err_code_map = {
             'account_with_dids': 'The Account has DIDs assigned to it.',
             'api_not_enabled': 'API has not been enabled or has been disabled',
             'api_limit_exceeded': 'API requests limit per minute has been reached',
-            'cancel_failed': "The cancellation wasn't completed.", 'can_have_only_one_profile_without_pin': 'The conference can just have one profile member without pin',
+            'cancel_failed': "The cancellation wasn't completed.",
+            'can_have_only_one_profile_without_pin': 'The conference can just have one profile member without pin',
             'conference_member_relation_not_found': 'There is no relation between the profile member and the conference.',
             'did_in_use': 'DID Number is already in use',
             'duplicated_pin': 'The given pin has been duplicated',
             'error_deleting_msg': 'Error when deleting message',
             'error_moving_msg': 'Error when move the voicemail message to folder',
-            'existing_did': "You can't set a callback to an existing VoIP.ms DID number", 'exceeds_file_size': 'The file exceeds the limite size allowed.',
+            'existing_did': "You can't set a callback to an existing VoIP.ms DID number",
+            'exceeds_file_size': 'The file exceeds the limite size allowed.',
             'forwards_exceeded': 'Your account is limited to 4 forward entries',
             'invalid_account': 'This is not a valid account',
             'invalid_address': 'Address is missing or the format is invalid.',
             'invalid_admin': 'This is not a valid admin',
             'invalid_agent_ring_timeout': 'This is not a valid Agent ring time out value',
             'invalid_allowedcodecs': 'One of the codecs provided is invalidFormat and Values: ulaw;g729;gsm;all',
-            'invalid_attachid': "The given ID is invalid or doesn't exist.", 'invalid_announce_join_leave': 'This is not a valid "Announce join leave"',
+            'invalid_attachid': "The given ID is invalid or doesn't exist.",
+            'invalid_announce_join_leave': 'This is not a valid "Announce join leave"',
             'invalid_announce_only_user': 'This is not a valid "Announce only user"',
             'invalid_announce_position_frequency': 'This is not a valid Announce position frequency',
             'invalid_announce_round_seconds': 'This is not a valid "Announce round seconds"',
@@ -54,7 +57,8 @@ class VoipException(Exception):
             'invalid_conference': 'This is not a valid Conference ID',
             'invalid_countryid': 'This is not a valid Country ID',
             'invalid_city': 'City is missing or the format is invalid.',
-            'invalid_country': 'Country is missing or the format is invalid, must be in format ISO 3166-1 alpha-2, example: US, CA, etc. (You can use the values returned by the method getCountries)',
+            'invalid_country': ('Country is missing or the format is invalid, must be in format ISO 3166-1 alpha-2, '
+                'example: US, CA, etc. (You can use the values returned by the method getCountries)'),
             'invalid_credentials': 'Username or Password is incorrect',
             'invalid_date': 'This is not a valid dateFormat is: yyyy-mm-dd',
             'invalid_datetime': 'This is not a valid datetimeFormat is: yyyy-mm-dd hh:mm:ss',
@@ -105,7 +109,9 @@ class VoipException(Exception):
             'invalid_ip_iax2': 'Do not provide an IP address for IAX2',
             'invalid_ivr': 'This is not a valid IVR',
             'invalid_jitter_buffer': 'This is not a valid "jitter buffer" value',
-            'invalid_join_empty_type': "This is not a valid 'JoinWhenEmpty' Type for a Queue", 'invalid_join_announcement': "This is not a valid 'Join Announcement' Type for a Queue", 'invalid_language': 'This is not a valid LanguageShould be: es/en/fr',
+            'invalid_join_empty_type': "This is not a valid 'JoinWhenEmpty' Type for a Queue",
+            'invalid_join_announcement': "This is not a valid 'Join Announcement' Type for a Queue",
+            'invalid_language': 'This is not a valid LanguageShould be: es/en/fr',
             'invalid_lastname': 'Lastname is missing or the format is invalid.',
             'invalid_listened': 'This is not a valid Listened value',
             'invalid_location': 'This is not a valid Location',
@@ -228,7 +234,7 @@ class VoipException(Exception):
             'invalid_urgent': 'This is not valid urgent value',
             'invalid_zip': 'Zip Code is missing or the format is invalid.',
             'ip_not_enabled': 'This IP is not enabled for API use',
-            'limit_reached': 'You have reached the maximum number of messages allowed per day.- SMS limit using the API.- Fax limit applies using any method.',
+            'limit_reached': 'You have reached the maximum number of messages allowed per day.',
             'max_phonebook': 'Your account is limited to 8 SIP, IAX or SIP URI members',
             'member_already_included': 'The member has been included already',
             'members_exceeded': 'You have reached the maximum allowed entries for the Phonebook',
@@ -284,13 +290,16 @@ class VoipException(Exception):
             'missing_folder': 'folder was not provided',
             'missing_forwarding': 'Forwarding was not provided',
             'missing_id': 'ID was not provided',
-            'missing_if_announce_position_enabled_report_estimated_hold_time': "'If announce position enabled report estimated hold time' type was not provided", 'missing_internationalroute': 'International Route was not provided',
+            'missing_if_announce_position_enabled_report_estimated_hold_time': "'If announce position enabled report estimated hold time' type was not provided",
+            'missing_internationalroute': 'International Route was not provided',
             'missing_ip': 'You need to provide an IP if you select IP Authentication Method',
             'missing_ip_h323': 'You must enter an IP Address for H.323',
             'missing_ivr': 'IVR was not provided',
-            'missing_join_when_empty': "'JoinWhenEmpty' type was not provided", 'missing_language': 'Language was not provided',
+            'missing_join_when_empty': "'JoinWhenEmpty' type was not provided",
+            'missing_language': 'Language was not provided',
             'missing_lastname': 'Lastname was not provided',
-            'missing_leave_when_empty': "'LeaveWhenEmpty' type was not provided", 'missing_listened': 'Listened code was not provided',
+            'missing_leave_when_empty': "'LeaveWhenEmpty' type was not provided",
+            'missing_listened': 'Listened code was not provided',
             'missing_location': 'Location was not provided',
             'missing_lockinternational': 'Lock International was not provided',
             'missing_mailbox': 'Mailbox was not provided',
@@ -320,7 +329,9 @@ class VoipException(Exception):
             'missing_query': 'Query was not provided',
             'missing_recording': 'Recording was not provided',
             'missing_report_hold_time_agent': 'Report hold time agent was not provided',
-            'missing_resellerclient': "Provide a Reseller Client or don't provide a Reseller Package", 'missing_resellerpackage': "Provide a Reseller Package or don't provide a Reseller Client", 'missing_response_timeout': 'ResponseTimeOut was not provided',
+            'missing_resellerclient': "Provide a Reseller Client or don't provide a Reseller Package",
+            'missing_resellerpackage': "Provide a Reseller Package or don't provide a Reseller Client",
+            'missing_response_timeout': 'ResponseTimeOut was not provided',
             'missing_ringgroup': 'Ring group was not provided',
             'missing_ring_inuse': 'Ring in use was not provided',
             'missing_ring_strategy': 'Ring strategy was not provided',
@@ -358,7 +369,7 @@ class VoipException(Exception):
             'no_base64file': 'File not encoded in base64',
             'no_callback': 'There are not Callbacks',
             'no_callhunting': 'There are no Call Huntings',
-            'no_callstatus': 'No Call Status was provided.One of the following parameters needs to be set to "1": answered, noanswer, busy, failed',
+            'no_callstatus': 'No Call Status was provided. One of the following parameters needs to be set to "1": answered, noanswer, busy, failed',
             'no_cdr': 'There are no CDR entries for the filter',
             'no_change_billingtype': 'Imposible change DID billing plan',
             'no_client': 'There are no Clients',
@@ -383,7 +394,8 @@ class VoipException(Exception):
             'no_sms': 'There are no SMS messages',
             'no_timecondition': 'There are no Time Conditions',
             'note_toolong': 'The note exceeds character size limit',
-            'order_failed': "The order wasn't completed.", 'provider_outofservice': 'One of our providers is out of service',
+            'order_failed': "The order wasn't completed.",
+            'provider_outofservice': 'One of our providers is out of service',
             'recording_in_use_did': 'You have a DID using this Recording',
             'recording_in_use_queue': 'You have a Calling Queue using this Recording',
             'recording_in_use_ivr': 'You have an IVR using this Recording',
@@ -392,7 +404,9 @@ class VoipException(Exception):
             'repeated_ip': 'You already have a Subaccount using this IP and Protocol',
             'reserved_ip': 'This is a reserved IP used by VoIP.ms or other Companies',
             'same_did_billingtype': 'The Billing Type provided and DID billing type are the same',
-            'sipuri_in_phonebook': "This SIPURI can't be deleted, it is mapped in the phonebook", 'sent_fail': "The Fax Message it wasn't send.", 'sms_toolong': 'The SMS message exceeds 160 characters',
+            'sipuri_in_phonebook': "This SIPURI can't be deleted, it is mapped in the phonebook",
+            'sent_fail': "The Fax Message it wasn't send.",
+            'sms_toolong': 'The SMS message exceeds 160 characters',
             'sms_failed': 'The SMS message was not sent',
             'tls_error': 'Theres was a TLS error, please try later.',
             'Unable_to_purchase': 'Unable to purchase DIDs',
@@ -411,7 +425,6 @@ class VoipException(Exception):
         err_desc = err_code_map[self.err_code] or self.err_code
         return "API Call failed as: {}".format(err_desc)
 
-    
 
 class VoipRestException(VoipException):
     def __str__(self):

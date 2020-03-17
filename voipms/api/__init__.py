@@ -5,19 +5,18 @@ import requests
 
 from voipms.base.exceptions import VoipException
 
+
 class Client(object):
     def __init__(self, username=None, password=None):
-        
         self.username = username or os.environ.get('VOIPMS_ACCOUNT_USER')
         self.password = password or os.environ.get('VOIPMS_API_TOKEN')
         self.api_base = "https://voip.ms/api/v1/rest.php"
 
         if not self.username or not self.password:
             raise VoipException("Credentials are required to create a Client")
-        
+
         self.auth = (self.username, self.password)
 
-        # Domains
         self._accounts = None
         self._call_detail_records = None
         self._dids = None
@@ -26,7 +25,7 @@ class Client(object):
 
     def request(self, method, auth=None, params={}):
         auth = auth or self.auth
-        
+
         params["api_username"] = auth[0]
         params["api_password"] = auth[1]
         params["method"] = method
@@ -34,7 +33,7 @@ class Client(object):
 
         response = requests.get(self.api_base, params=params)
         data = json.loads(response.text)
-        
+
         if data['status'] and data['status'] != 'success':
             err_code = data['status']
             raise VoipException(err_code)
@@ -79,7 +78,7 @@ class Client(object):
     @property
     def balance(self):
         return self.general.balance
-    
+
     @property
     def ip(self):
         return self.general.ip

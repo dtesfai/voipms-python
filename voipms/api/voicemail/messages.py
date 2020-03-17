@@ -2,7 +2,7 @@ class Messages():
     def __init__(self, base):
         self.method = ""
         self.base = base
-    
+
     def fetch(self, params={}):
         self.method = "getVoicemailMessages"
         return self.base.request(self.method, params=params)

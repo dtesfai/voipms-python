@@ -27,6 +27,7 @@ pyvenv.cfg
 *.egg-info
 man
 include
+credentials.py
 
 # Unit test / coverage reports
 .coverage

@@ -3,9 +3,9 @@ from voipms.api.call_detail_records.records import Records
 from voipms.api.call_detail_records.rates import Rates
 from voipms.api.call_detail_records.termination_rates import TerminationRates
 
+
 class CallDetailRecords():
     def __init__(self, base):
-        
         self.base = base
         self._billing = None
         self._records = None

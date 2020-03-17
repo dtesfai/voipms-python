@@ -4,6 +4,7 @@ from voipms.api.general.transaction_history import TransactionHistory
 from voipms.api.general.countries import Countries
 from voipms.api.general.languages import Languages
 
+
 class General():
     def __init__(self, base):
         self._balance = None

@@ -2,7 +2,7 @@ class SMS():
     def __init__(self, base):
         self.method = ""
         self.base = base
-    
+
     def fetch(self, params={}):
         self.method = "getSMS"
         return self.base.request(self.method, params=params)

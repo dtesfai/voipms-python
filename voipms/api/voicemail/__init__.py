@@ -1,5 +1,6 @@
 from voipms.api.voicemail.messages import Messages
 
+
 class Voicemail():
     def __init__(self, base):
         self._messages = None
